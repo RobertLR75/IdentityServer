@@ -29,8 +29,8 @@ public class IdentityServerEventSink(ILogger<IdentityServerEventSink> logger) : 
         
         if (evt is TokenIssuedSuccessEvent tokenIssuedSuccessEvent)
         {
-            logger.LogWarning("TokenIssuedSuccess: {ClientId} - {Message}", 
-                tokenIssuedSuccessEvent.ClientId, 
+            logger.LogInformation("TokenIssuedSuccess: {ClientId} - {Message}",
+                tokenIssuedSuccessEvent.ClientId,
                 tokenIssuedSuccessEvent.Message);
         }
         

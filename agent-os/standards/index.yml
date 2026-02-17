@@ -1,0 +1,39 @@
+# Agent OS Standards Index
+
+aspire:
+  health-checks:
+    description: /health (readiness) and /alive (liveness) endpoints, dev-only by default
+  otlp-exporter:
+    description: OTLP export enabled via OTEL_EXPORTER_OTLP_ENDPOINT env var
+  service-defaults:
+    description: AddServiceDefaults() wires up all Aspire observability and resilience
+
+auth:
+  cancel-deny-pattern:
+    description: OIDC cancel button must call DenyAuthorizationAsync before redirect
+  event-sink:
+    description: IEventSink pattern for required failure events and optional success events
+  events-and-metrics:
+    description: RaiseAsync required + Telemetry.Metrics optional on login outcomes
+  security-headers:
+    description: "[SecurityHeaders] attribute required on every Razor Page"
+
+oauth:
+  api-scope-names:
+    description: ApiScopeNames enum as compile-safe scope contract
+  client-grant-types:
+    description: Code+PKCE for users, ClientCredentials for M2M
+  scope-naming:
+    description: "Scope name format: {ServiceName}{Read|Write}"
+  standard-scopes:
+    description: Reference OIDC standard scopes via nameof().ToLower()
+
+razor-pages:
+  build-model-async:
+    description: Private async BuildModelAsync() centralizes view init for OnGet and OnPost
+  folder-structure:
+    description: Folder-per-feature with Index, ViewModel, InputModel (forms), *Options (config)
+  options-class:
+    description: Static readonly *Options.cs for feature config constants
+  viewmodel-inputmodel:
+    description: "ViewModel = display data; InputModel = [BindProperty] form data with Button field"
